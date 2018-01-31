@@ -1,0 +1,12 @@
+{
+  "environments": {
+    "test": {
+      "scripts": {
+        "test": "go test -v ./..."
+      },
+      "addons": [
+        "heroku-postgresql:in-dyno"
+      ]
+    }
+  }
+}
