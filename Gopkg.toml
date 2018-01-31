@@ -23,3 +23,8 @@
 [[constraint]]
   name = "github.com/jackc/pgx"
   version = "3.1.0"
+
+[metadata.heroku]
+  root-package = "github.com/mble/tiny-go"
+  go-version = "go1.9"
+  ensure = "false"
