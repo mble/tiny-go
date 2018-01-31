@@ -6,6 +6,9 @@
   ],
   "environments": {
     "test": {
+      "scripts": {
+        "test": "env && go test -v ./... | patter"
+      },
       "addons": [
         "heroku-postgresql:in-dyno"
       ]
