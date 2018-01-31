@@ -1,17 +1,17 @@
 {
-  "buildpacks": [
-    {
-      "url": "heroku/go"
-    }
-  ],
   "environments": {
     "test": {
-      "scripts": {
-        "test": "env && go test -v ./... | patter"
-      },
-      "addons": [
-        "heroku-postgresql:in-dyno"
-      ]
+      "buildpacks": [
+        {
+          "url": "https://github.com/heroku/heroku-buildpack-go"
+        },
+        {
+          "url": "https://github.com/heroku/heroku-buildpack-ci-postgresql"
+        }
+      ],
+      "env": {
+        "PGSSLMODE": "disable"
+      }
     }
   }
 }
