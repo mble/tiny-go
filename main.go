@@ -3,18 +3,27 @@ package main
 import (
 	"database/sql"
 	"fmt"
+	"net/http"
 	"os"
 
 	_ "github.com/jackc/pgx/stdlib"
 )
 
 func main() {
-	fmt.Println("Testing extension creation")
 	err := CreateExtensions()
 	if err != nil {
 		fmt.Printf("Error creating extensions: %v", err)
 	}
-	fmt.Println("Tested extensions")
+	port, ok := os.LookupEnv("PORT")
+	if !ok {
+		port = "9001"
+	}
+	http.HandleFunc("/", rootHandler)
+	http.ListenAndServe(":"+port, nil)
+}
+
+func rootHandler(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(w, "Wow much server")
 }
 
 // CreateExtensions creates some Postgres extensions, and returns errors if they fail
