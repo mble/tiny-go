@@ -32,8 +32,8 @@ func CreateExtensions() error {
 	if err != nil {
 		return err
 	}
-	_, err = db.Exec("DROP EXTENSION IF EXISTS postgis")
-	_, err = db.Exec("CREATE EXTENSION postgis")
+	_, err = db.Exec("DROP EXTENSION IF EXISTS pg_stat_statements")
+	_, err = db.Exec("CREATE EXTENSION pg_stat_statements")
 	if err != nil {
 		return err
 	}
