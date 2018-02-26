@@ -2,6 +2,21 @@
 
 
 [[projects]]
+  name = "github.com/go-redis/redis"
+  packages = [
+    ".",
+    "internal",
+    "internal/consistenthash",
+    "internal/hashtag",
+    "internal/pool",
+    "internal/proto",
+    "internal/singleflight",
+    "internal/util"
+  ]
+  revision = "56dea1f39a5f4a64fe8c639464c966c75f226e3e"
+  version = "v6.9.1"
+
+[[projects]]
   name = "github.com/jackc/pgx"
   packages = [
     ".",
@@ -24,6 +39,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "6b55ad4a72ee7cabc5b529d611807ce3a1cd4b52fde8e717a617b55d8b5f5a70"
+  inputs-digest = "1c8e0c66a5fa554d0cf1b6a11777eaa8bf2657c4cb690201312d4a346c16f208"
   solver-name = "gps-cdcl"
   solver-version = 1
