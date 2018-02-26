@@ -1,4 +1,5 @@
 {
+  "addons": ["heroku-redis:in-dyno"],
   "environments": {
     "test": {
       "buildpacks": [
@@ -9,7 +10,6 @@
           "url": "https://github.com/heroku/heroku-buildpack-ci-postgresql"
         }
       ],
-      "addons": ["heroku-redis:in-dyno"],
       "env": {
         "PGSSLMODE": "disable"
       }
