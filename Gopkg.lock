@@ -2,19 +2,13 @@
 
 
 [[projects]]
-  name = "github.com/go-redis/redis"
+  name = "github.com/garyburd/redigo"
   packages = [
-    ".",
     "internal",
-    "internal/consistenthash",
-    "internal/hashtag",
-    "internal/pool",
-    "internal/proto",
-    "internal/singleflight",
-    "internal/util"
+    "redis"
   ]
-  revision = "56dea1f39a5f4a64fe8c639464c966c75f226e3e"
-  version = "v6.9.1"
+  revision = "d1ed5c67e5794de818ea85e6b522fda02623a484"
+  version = "v1.5.0"
 
 [[projects]]
   name = "github.com/jackc/pgx"
@@ -39,6 +33,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "1c8e0c66a5fa554d0cf1b6a11777eaa8bf2657c4cb690201312d4a346c16f208"
+  inputs-digest = "0c65f8e7a4602b7baba97cb0639cd02aeb307e2263ae79ab41cea95ee1ad8ec0"
   solver-name = "gps-cdcl"
   solver-version = 1

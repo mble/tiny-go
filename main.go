@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/go-redis/redis"
+	"github.com/garyburd/redigo/redis"
 
 	_ "github.com/jackc/pgx/stdlib"
 )
@@ -44,16 +44,14 @@ func CreateExtensions() error {
 
 // PokeRedis pokes redis, and returns an error if it is unsuccessful
 func PokeRedis() error {
-	client := redis.NewClient(&redis.Options{
-		Addr:     os.Getenv("REDIS_URL"),
-		Password: "", // no password set
-		DB:       0,  // use default DB
-	})
-
-	pong, err := client.Ping().Result()
+	client, err := redis.DialURL(os.Getenv("REDIS_URL"))
 	if err != nil {
 		return err
 	}
-	fmt.Println(pong, err)
+	_, err = client.Do("PING")
+	if err != nil {
+		return err
+	}
+	defer client.Close()
 	return nil
 }
