@@ -1,10 +1,13 @@
 {
-  "addons": ["heroku-redis:in-dyno", "heroku-postgresql:in-dyno"],
+  "addons": ["heroku-redis:in-dyno"],
   "environments": {
     "test": {
       "buildpacks": [
         {
           "url": "https://github.com/heroku/heroku-buildpack-go"
+        },
+        {
+          "url": "https://github.com/heroku/heroku-buildpack-ci-postgresql"
         }
       ],
       "env": {
