@@ -24,6 +24,7 @@ func main() {
 	http.ListenAndServe(":"+port, nil)
 }
 
+// rootHandler handles the root
 func rootHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "Wow much server")
 }
