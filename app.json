@@ -1,13 +1,16 @@
 {
-  "addons": ["heroku-redis:in-dyno", "heroku-postgresql"],
+  "addons": ["heroku-redis:in-dyno"],
   "environments": {
     "test": {
       "scripts": {
-        "test-setup": "psql -c 'SELECT 1;' $DATABASE_URL"
+        "test-setup": "psql -c 'CREATE DATABASE some_test_database;' $DATABASE_URL && psql -c 'SELECT 1;' -d some_test_database $DATABASE_URL"
       },
       "buildpacks": [
         {
           "url": "https://github.com/heroku/heroku-buildpack-go"
+        },
+        {
+          "url": "https://github.com/heroku/heroku-buildpack-ci-postgresql"
         }
       ],
       "env": {
