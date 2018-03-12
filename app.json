@@ -2,6 +2,9 @@
   "addons": ["heroku-redis:in-dyno", "heroku-postgresql"],
   "environments": {
     "test": {
+      "scripts": {
+        "test-setup": "psql -c 'SELECT 1;' $DATABASE_URL"
+      },
       "buildpacks": [
         {
           "url": "https://github.com/heroku/heroku-buildpack-go"
